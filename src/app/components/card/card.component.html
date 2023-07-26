@@ -1,0 +1,12 @@
+<div
+  [routerLink]="['/', 'natural-number-checker']"
+  class="relative rounded-lg h-56 w-56 text-center text-xl overflow-hidden cursor-pointer bg-zinc-200 hover:scale-105 transition-all"
+>
+  <img
+    [src]="'assets/images/bg/' + image + '.png'"
+    class="absolute w-full h-full"
+  />
+  <div class="bg-white/30 backdrop-blur w-full h-full flex justify-center items-center">
+    {{ name }}
+  </div>
+</div>

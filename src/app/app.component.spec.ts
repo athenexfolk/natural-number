@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'counting-number'`, () => {
+  it(`should have as title 'natural-number'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('counting-number');
+    expect(app.title).toEqual('natural-number');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('counting-number app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('natural-number app is running!');
   });
 });
