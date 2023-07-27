@@ -1,11 +1,21 @@
 <div class="p-4">
-  <div class="flex justify-center flex-wrap gap-4 max-w-screen-lg mx-auto">
-    <app-card name="Natural Number Checker" image="nat1"></app-card>
-    <!-- <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card> -->
+  <h2 class="text-3xl font-bold">Program lists</h2>
+  <div class="p-4">
+    <p class="text-lg">Basic natural number operation</p>
+    <div class="flex flex-wrap gap-4 p-4">
+      <app-link-button
+        *ngFor="let link of basicOp"
+        [link]="link"
+      ></app-link-button>
+    </div>
+  </div>
+  <div class="p-4">
+    <p class="text-lg">Advance natural number operation</p>
+    <div class="flex flex-wrap gap-4 p-4">
+      <app-link-button
+        *ngFor="let link of advanceOp"
+        [link]="link"
+      ></app-link-button>
+    </div>
   </div>
 </div>

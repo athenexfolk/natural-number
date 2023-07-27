@@ -8,10 +8,10 @@ const routes: Routes = [
     component: IndexPageComponent,
   },
   {
-    path: 'natural-number-checker',
+    path: 'natural-number-checking',
     loadChildren: () =>
-      import('./features/nn-checker/nn-checker.module').then(
-        (m) => m.NnCheckerModule
+      import('./features/nn-checking/nn-checking.module').then(
+        (m) => m.NnCheckingModule
       ),
   },
 ];
