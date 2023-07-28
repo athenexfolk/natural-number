@@ -8,6 +8,14 @@
   font-weight: 500;
 }
 
+@font-face {
+  font-family: "NotoSerif";
+  src: url("assets/fonts/NotoSerif-VariableFont_wdth\,wght.ttf");
+  font-weight: 500;
+}
+
 body {
   font-family: "Comfortaa";
 }
+
+@import "node_modules/katex/dist/katex.min.css";

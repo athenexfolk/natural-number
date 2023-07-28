@@ -9,7 +9,7 @@
       <input
         type="number"
         [formControl]="numberInput"
-        class="px-4 py-2 rounded-lg border focus:outline-0"
+        class="w-48 px-4 py-2 rounded-lg border focus:outline-0 font-[NotoSerif]"
         placeholder="Type number..."
       />
       <button
@@ -21,48 +21,49 @@
       </button>
     </div>
   </div>
-  <div
-    *ngIf="isNullInput"
-    class="p-4 flex gap-4"
-  >
-    <div class="grow-0 shrink-0 text-yellow-500">
-      <warning-circle></warning-circle>
-    </div>
+  <div class="grid grid-cols-1 gap-4 font-[NotoSerif]">
+    <div *ngIf="isNullInput" class="p-4 flex gap-4 rounded-lg bg-zinc-950 text-yellow-400">
+      <div class="grow-0 shrink-0">
+        <warning-circle></warning-circle>
+      </div>
 
-    <p>Your input is null. Please input something.</p>
-  </div>
-  <div
-    *ngIf="isLimitExceeded"
-    class="p-4 flex gap-4"
-  >
-    <div class="grow-0 shrink-0 text-red-500">
-      <warning-triangle></warning-triangle>
+      <p>Your input is null. Please input something.</p>
     </div>
-    <p>
-      To keep the system from failing. We limit numbers between -{{
-        limitNumber
-      }}
-      and {{ limitNumber }}. Please enter a number that meets this condition.
-    </p>
-  </div>
-  <div *ngIf="isResultChecked" class="rounded-lg p-4">
-    <div class="flex gap-2">
-      <ng-container
-        *ngIf="conditionResult[0]; then trueMark; else falseMark"
-      ></ng-container>
-      <p>{{ resultNumber }} is integer</p>
+    <div *ngIf="isLimitExceeded" class="p-4 flex gap-4 rounded-lg bg-zinc-950 text-red-400">
+      <div class="grow-0 shrink-0">
+        <warning-triangle></warning-triangle>
+      </div>
+      <p>
+        To keep the system from failing. We limit numbers between
+        <katex [expression]="limitNumber.toString()"></katex> and
+        <katex [expression]="limitNumber.toString()"></katex>. Please enter a
+        number that meets this condition.
+      </p>
     </div>
-    <div class="flex gap-2">
-      <ng-container
-        *ngIf="conditionResult[1]; then trueMark; else falseMark"
-      ></ng-container>
-      <p>{{ resultNumber }} is greater than 0</p>
+    <div *ngIf="isResultChecked" class="p-4 rounded-lg bg-zinc-950 text-white">
+      <div class="flex gap-2">
+        <ng-container
+          *ngIf="conditionResult[0]; then trueMark; else falseMark"
+        ></ng-container>
+        <p>
+          <katex [expression]="resultNumber!.toString()"></katex> is integer
+        </p>
+      </div>
+      <div class="flex gap-2">
+        <ng-container
+          *ngIf="conditionResult[1]; then trueMark; else falseMark"
+        ></ng-container>
+        <p>
+          <katex [expression]="resultNumber!.toString()"></katex> is greater
+          than 0
+        </p>
+      </div>
+      <p class="font-bold mt-4">
+        Therefore, <katex [expression]="'\\mathbf{'+resultNumber!.toString()+'}'"></katex> is
+        <span *ngIf="!conditionResult[0] || !conditionResult[1]">not</span>
+        natural number.
+      </p>
     </div>
-    <p class="font-bold mt-4">
-      Therefore, {{ resultNumber }} is
-      <span *ngIf="!conditionResult[0] || !conditionResult[1]">not</span>
-      natural number.
-    </p>
   </div>
 </div>
 

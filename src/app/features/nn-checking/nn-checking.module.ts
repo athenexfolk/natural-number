@@ -5,6 +5,7 @@ import { NnCheckingRoutingModule } from './nn-checking-routing.module';
 import { AppPageComponent } from './pages/app-page/app-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { IconModule } from 'src/app/icon/icon.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { IconModule } from 'src/app/icon/icon.module';
     CommonModule,
     NnCheckingRoutingModule,
     ReactiveFormsModule,
-    IconModule
+    IconModule,
+    SharedModule
   ]
 })
 export class NnCheckingModule { }
